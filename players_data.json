@@ -1,0 +1,42 @@
+[
+	{
+		"player_no": 1,
+		"player_name": "Joey",
+		"player_defence_set_length": 8
+	},
+	{
+		"player_no": 2,
+		"player_name": "Nick",
+		"player_defence_set_length": 8
+	},
+	{
+		"player_no": 3,
+		"player_name": "Russel",
+		"player_defence_set_length": 7
+	},
+	{
+		"player_no": 4,
+		"player_name": "Vivek",
+		"player_defence_set_length": 7
+	},
+	{
+		"player_no": 5,
+		"player_name": "Pritam",
+		"player_defence_set_length": 6
+	},
+	{
+		"player_no": 6,
+		"player_name": "Amit",
+		"player_defence_set_length": 6
+	},
+	{
+		"player_no": 7,
+		"player_name": "Chandler",
+		"player_defence_set_length": 5
+	},
+	{
+		"player_no": 8,
+		"player_name": "Colwin",
+		"player_defence_set_length": 5
+	}
+]
