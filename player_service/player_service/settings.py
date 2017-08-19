@@ -131,6 +131,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ],
+    'EXCEPTION_HANDLER': 'player_service.api.custom_exceptions.player_custom_exception_handler',
 }
 ########## END REST FRAMEWORK CONFIGURATION
 

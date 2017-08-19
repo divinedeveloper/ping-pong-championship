@@ -131,5 +131,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny'
     ],
+    
 }
 ########## END REST FRAMEWORK CONFIGURATION
+
+GAME_WINNING_POINTS = 5
+GET_PLAYERS_URL = "http://127.0.0.1:8001/player/api/v1/players/"
+GET_PLAYER_MOVES_URL = "http://127.0.0.1:8001/player/api/v1/moves/"
+PLAYER_SHUTDOWN_URL = "http://127.0.0.1:8001/player/api/v1/shut-down/"
