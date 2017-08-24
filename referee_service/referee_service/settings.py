@@ -80,11 +80,14 @@ WSGI_APPLICATION = 'referee_service.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ping_pong',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -135,7 +138,24 @@ REST_FRAMEWORK = {
 }
 ########## END REST FRAMEWORK CONFIGURATION
 
+PLAYER_DATA_FILE_NAME= "players_data.json"
 GAME_WINNING_POINTS = 5
-GET_PLAYERS_URL = "http://127.0.0.1:8001/player/api/v1/players/"
-GET_PLAYER_MOVES_URL = "http://127.0.0.1:8001/player/api/v1/moves/"
-PLAYER_SHUTDOWN_URL = "http://127.0.0.1:8001/player/api/v1/shut-down/"
+# GET_PLAYERS_URL = "http://127.0.0.1:8001/player/api/v1/players/"
+# GET_PLAYER_MOVES_URL = "http://127.0.0.1:8001/player/api/v1/moves/"
+# PLAYER_SHUTDOWN_URL = "http://127.0.0.1:8001/player/api/v1/shut-down/"
+
+PLAYER_STATUS = {"Registered": "Registered", "Selected":"Selected", "Playing":"Playing", "Winner":"Winner",
+                "Looser":"Looser", "Shutdown":"Shutdown"}
+
+PLAYER_ROLE = {"N/A":"Not Defined","Offensive":"Offensive", "Defensive":"Defensive"}
+
+CHAMPIONSHIP_STATUS = {"Started":"Started","Ended":"Ended"}
+
+GAME_STATUS = {"Drawn":"Drawn","InProgress":"InProgress","Done":"Done"}
+
+REGISTERED_NOTIFICATION = "Players have registered with championship"
+DRAW_GAMES_INSTRUCTION = "Lets draw Initial Games"
+DRAW_GAMES_NOTIFICATION = "{0} Games Drawn"
+PLAYER_LOGIN_INSTRUCTION = "Game is {0} vs {1} Please Login as one of them."
+TOSS_NOTIFICATION = "{0} will be {1} and {2} will be {3}"
+TOSS_INSTRUCTION = "Offensive player start with moves"

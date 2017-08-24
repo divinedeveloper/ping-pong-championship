@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'player_service.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ping_pong',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'PORT': '3306',
     }
 }
 
@@ -135,3 +139,14 @@ REST_FRAMEWORK = {
 }
 ########## END REST FRAMEWORK CONFIGURATION
 
+PLAYER_STATUS = {"Registered": "Registered", "Selected":"Selected", "Playing":"Playing", "Winner":"Winner",
+                "Looser":"Looser", "Shutdown":"Shutdown"}
+
+PLAYER_ROLE = {"N/A":"Not Defined","Offensive":"Offensive", "Defensive":"Defensive"}
+
+CHAMPIONSHIP_STATUS = {"Started":"Started","Ended":"Ended"}
+
+GAME_STATUS = {"Drawn":"Drawn","InProgress":"InProgress","Done":"Done"}
+
+LOGIN_NOTIFICATION = "Player {0} has logged in"
+TOSS_INSTRUCTION = "Logged in as {0}. Draw toss for match between {1} vs {2}"

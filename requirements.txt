@@ -4,3 +4,4 @@ django==1.11.4
 six==1.10.0
 djangorestframework==3.3.2
 requests==2.14.2
+MySQL-python
