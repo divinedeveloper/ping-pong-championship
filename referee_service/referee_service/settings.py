@@ -151,7 +151,7 @@ PLAYER_ROLE = {"N/A":"Not Defined","Offensive":"Offensive", "Defensive":"Defensi
 
 CHAMPIONSHIP_STATUS = {"Started":"Started","Ended":"Ended"}
 
-GAME_STATUS = {"Drawn":"Drawn","InProgress":"InProgress","Done":"Done"}
+GAME_STATUS = {"Drawn":"Drawn", "Started":"Started", "InProgress":"InProgress","Done":"Done"}
 
 REGISTERED_NOTIFICATION = "Players have registered with championship"
 DRAW_GAMES_INSTRUCTION = "Lets draw Initial Games"
@@ -159,3 +159,10 @@ DRAW_GAMES_NOTIFICATION = "{0} Games Drawn"
 PLAYER_LOGIN_INSTRUCTION = "Game is {0} vs {1} Please Login as one of them."
 TOSS_NOTIFICATION = "{0} will be {1} and {2} will be {3}"
 TOSS_INSTRUCTION = "Offensive player start with moves"
+
+START_MATCH_NOTIFICATION = "Start Game with offensive player {0} select random number from 1 to 10."
+START_MATCH_INSTRUCTION = "Defensive player {0} create a defense array of random numbers (from 1 to 10) of length {1}"
+
+SHUTDOWN_NOTIFICATION = "Defeated Players were shutdown "
+NEXT_ROUND_INSTRUCTION = "Draw Games for next Round"
+

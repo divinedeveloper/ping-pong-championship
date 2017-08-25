@@ -146,7 +146,7 @@ class Services():
 		return games_list
 
 	@transaction.atomic
-	def choose_roles_for_players(self, game_id):
+	def choose_roles_for_players(self):
 		#get game by Drawn status
 		#randint(1,2), if 1 player_one offensive and player two defensive, viceversa
 		#set player status as Playing
@@ -159,14 +159,14 @@ class Services():
 		if games_query_set_count == 0:
 			raise CustomApiException("Game not found", status.HTTP_404_NOT_FOUND)
 
-		inprogress_game_query_set = Game.objects.filter(status__exact= settings.GAME_STATUS['InProgress'])
+		inprogress_game_query_set = Game.objects.filter(status__exact= settings.GAME_STATUS['Started'])
 
 		if inprogress_game_query_set.count() > 0:
 			raise CustomApiException("Please complete the game in progress", status.HTTP_400_BAD_REQUEST)
 
 		current_game = games_query_set[0]
-		if current_game.id != game_id:
-			raise CustomApiException("Please toss for Game id {0}".format(str(current_game.id)), status.HTTP_400_BAD_REQUEST)
+		# if current_game.id != game_id:
+		# 	raise CustomApiException("Please toss for Game id {0}".format(str(current_game.id)), status.HTTP_400_BAD_REQUEST)
 
 		if randint(1,2) == 1:
 			current_game.player_one.role = settings.PLAYER_ROLE['Offensive']
@@ -182,7 +182,7 @@ class Services():
 		current_game.player_one.save()
 		current_game.player_two.save()
 
-		current_game.status = settings.GAME_STATUS['InProgress']
+		current_game.status = settings.GAME_STATUS['Started']
 
 		current_game.save()
 
@@ -197,6 +197,100 @@ class Services():
 		referee = Referee.objects.latest('date_created')
 
 		return referee
+
+
+	@transaction.atomic
+	def start_game(self):
+		#get game in progress
+		#set intrcutions for both offensive and defensiv eplayer
+
+		inprogress_game_query_set = Game.objects.filter(status__exact= settings.GAME_STATUS['InProgress'])
+
+		if inprogress_game_query_set.count() > 0:
+			raise CustomApiException("Game is already in progress", status.HTTP_400_BAD_REQUEST)
+
+		current_game_query_set = Game.objects.filter(status__exact= settings.GAME_STATUS['Started'])
+
+		if current_game_query_set.count() == 0:
+			raise CustomApiException("Please draw toss for game", status.HTTP_400_BAD_REQUEST)
+
+		current_game = current_game_query_set[0]
+
+		#send notification and next_instruction to referee
+		if current_game.player_one.role == settings.PLAYER_ROLE['Offensive']:
+			offensive_player = current_game.player_one
+			defensive_player = current_game.player_two
+		else:
+			offensive_player = current_game.player_two
+			defensive_player = current_game.player_one
+
+
+		current_game.status = settings.GAME_STATUS['InProgress']
+
+		current_game.save()
+
+		notification = settings.START_MATCH_NOTIFICATION.format(offensive_player.name)
+		instruction = settings.START_MATCH_INSTRUCTION.format(defensive_player.name, defensive_player.defence_set_length)
+
+		self.referee_instruction(current_game.championship,current_game,current_game.player_one, current_game.player_two, 
+			notification, instruction)
+
+		referee = Referee.objects.latest('date_created')
+
+		return referee
+
+	
+	@transaction.atomic
+	def shutdown_loosers(self):
+		players_query_list = Player.objects.filter(status__exact= settings.PLAYER_STATUS['Looser'])
+
+		if not players_query_list:
+			raise CustomApiException("Defeated players not found", status.HTTP_404_NOT_FOUND)
+
+		players_query_list.update(status = settings.PLAYER_STATUS['Shutdown'])
+
+		current_championship = Championship.objects.get(status__exact= settings.CHAMPIONSHIP_STATUS['Started'])
+		notification = settings.SHUTDOWN_NOTIFICATION
+		instruction = settings.NEXT_ROUND_INSTRUCTION
+
+		self.referee_instruction(current_championship, None, None, None, notification, instruction)
+
+		referee = Referee.objects.latest('date_created')
+
+		return referee
+
+	def export_game_report(self, championship_id):
+		#get champiosnhip by id
+		#get all games for that championship and return the list
+		try:
+			championship = Championship.objects.get(id = championship_id)
+
+			games_report = Game.objects.filter(championship__exact = championship.id)
+
+			if not games_report:
+				raise CustomApiException("Games are not yet played for this championship", status.HTTP_404_NOT_FOUND)
+
+			return games_report
+
+		except Championship.DoesNotExist as e:
+				raise CustomApiException("Championship was not found", status.HTTP_404_NOT_FOUND)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

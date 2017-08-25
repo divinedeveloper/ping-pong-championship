@@ -1,0 +1,1268 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Ping Pong Championship",
+		"_postman_id": "db13138e-f9b4-7c4c-47d1-e76ffd11c1fc",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Player Registration API",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/register-players/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Player Registration"
+			},
+			"response": [
+				{
+					"id": "964d682e-a830-4a08-a83d-ae7604fb66f2",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8000/referee/api/v1/register-players/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 23 Aug 2017 14:31:11 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "1359",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 777,
+					"body": "{\"players\": [{\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}, {\"id\": 50, \"name\": \"Nick\", \"defence_set_length\": 8, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.252966Z\"}, {\"id\": 51, \"name\": \"Russel\", \"defence_set_length\": 7, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.254093Z\"}, {\"id\": 52, \"name\": \"Vivek\", \"defence_set_length\": 7, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255022Z\"}, {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, {\"id\": 54, \"name\": \"Amit\", \"defence_set_length\": 6, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.256787Z\"}, {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, {\"id\": 56, \"name\": \"Colwin\", \"defence_set_length\": 5, \"status\": \"Registered\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.258623Z\"}], \"message\": \"Players Registered successfully\", \"championship\": {\"id\": 3, \"status\": \"Started\", \"date_created\": \"2017-08-23T14:31:11.121005Z\", \"champion\": null}}"
+				}
+			]
+		},
+		{
+			"name": "Get Referee instructions",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/instructions/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Both notifications and instructions can be found in this api"
+			},
+			"response": [
+				{
+					"id": "1728a834-8331-499a-ba6b-b788a693ade4",
+					"name": "response",
+					"originalRequest": {
+						"url": {
+							"raw": "http://127.0.0.1:8001/player/api/v1/moves/?player_type=defensive&player_defence_set_length=8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8001",
+							"path": [
+								"player",
+								"api",
+								"v1",
+								"moves",
+								""
+							],
+							"query": [
+								{
+									"key": "player_type",
+									"value": "defensive",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "player_defence_set_length",
+									"value": "8",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 19 Aug 2017 22:20:27 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "41",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 78,
+					"body": "{\"player_move\": [6, 9, 4, 8, 2, 5, 1, 3]}"
+				}
+			]
+		},
+		{
+			"name": "Draw Games",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/draw-games/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Referee will Draw Games for curent championship"
+			},
+			"response": [
+				{
+					"id": "486e9284-3426-46ba-b2c0-188150103bc7",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8000/referee/api/v1/draw-games/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Wed, 23 Aug 2017 18:54:32 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "2461",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 559,
+					"body": "{\"message\": \"Games Drawn successfully\", \"games\": [{\"id\": 141916, \"player_one_score\": 0, \"player_two_score\": 0, \"game_type\": \"Knockout\", \"status\": \"Drawn\", \"date_created\": \"2017-08-23T18:54:31.819211Z\", \"championship\": {\"id\": 8, \"status\": \"Started\", \"date_created\": \"2017-08-23T18:54:24.608681Z\", \"champion\": null}, \"player_one\": {\"id\": 52, \"name\": \"Vivek\", \"defence_set_length\": 7, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255022Z\"}, \"player_two\": {\"id\": 50, \"name\": \"Nick\", \"defence_set_length\": 8, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.252966Z\"}, \"winner\": null}, {\"id\": 141917, \"player_one_score\": 0, \"player_two_score\": 0, \"game_type\": \"Knockout\", \"status\": \"Drawn\", \"date_created\": \"2017-08-23T18:54:31.862414Z\", \"championship\": {\"id\": 8, \"status\": \"Started\", \"date_created\": \"2017-08-23T18:54:24.608681Z\", \"champion\": null}, \"player_one\": {\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": null}, {\"id\": 141918, \"player_one_score\": 0, \"player_two_score\": 0, \"game_type\": \"Knockout\", \"status\": \"Drawn\", \"date_created\": \"2017-08-23T18:54:31.872676Z\", \"championship\": {\"id\": 8, \"status\": \"Started\", \"date_created\": \"2017-08-23T18:54:24.608681Z\", \"champion\": null}, \"player_one\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two\": {\"id\": 51, \"name\": \"Russel\", \"defence_set_length\": 7, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.254093Z\"}, \"winner\": null}, {\"id\": 141919, \"player_one_score\": 0, \"player_two_score\": 0, \"game_type\": \"Knockout\", \"status\": \"Drawn\", \"date_created\": \"2017-08-23T18:54:31.949792Z\", \"championship\": {\"id\": 8, \"status\": \"Started\", \"date_created\": \"2017-08-23T18:54:24.608681Z\", \"champion\": null}, \"player_one\": {\"id\": 56, \"name\": \"Colwin\", \"defence_set_length\": 5, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.258623Z\"}, \"player_two\": {\"id\": 54, \"name\": \"Amit\", \"defence_set_length\": 6, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.256787Z\"}, \"winner\": null}]}"
+				}
+			]
+		},
+		{
+			"name": "Referee instructions after drawing games",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/instructions/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Both notifications and instructions can be found in this api"
+			},
+			"response": [
+				{
+					"id": "77e073ed-dfe9-4dd6-8b30-e77f010fc2a9",
+					"name": "response",
+					"originalRequest": {
+						"url": {
+							"raw": "http://127.0.0.1:8001/player/api/v1/moves/?player_type=defensive&player_defence_set_length=8",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8001",
+							"path": [
+								"player",
+								"api",
+								"v1",
+								"moves",
+								""
+							],
+							"query": [
+								{
+									"key": "player_type",
+									"value": "defensive",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "player_defence_set_length",
+									"value": "8",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Sat, 19 Aug 2017 22:20:27 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "41",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 78,
+					"body": "{\"player_move\": [6, 9, 4, 8, 2, 5, 1, 3]}"
+				}
+			]
+		},
+		{
+			"name": "Login using player name",
+			"request": {
+				"url": "http://127.0.0.1:8001/player/api/v1/login/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Pritam\"\n}"
+				},
+				"description": "Login using player name"
+			},
+			"response": [
+				{
+					"id": "0c5d47cb-f778-408b-9bcd-94eb14dccdb7",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8001/player/api/v1/login/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Pritam\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 24 Aug 2017 19:15:20 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "335",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 178,
+					"body": "{\"message\": \"Logged in as Pritam. Draw toss for match\", \"player_token\": {\"id\": 3, \"token\": \"268b6369-d884-4dd9-abd7-7d1b99af450d\", \"date_created\": \"2017-08-24T19:03:34.198498Z\", \"player\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}}"
+				}
+			]
+		},
+		{
+			"name": "Toss ",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/toss/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "draw toss for match to decide offensive and defensive player"
+			},
+			"response": [
+				{
+					"id": "3e098fd4-9899-4dfb-883b-89799b1ccf6b",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8000/referee/api/v1/game/141920/toss/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 24 Aug 2017 21:50:45 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "1307",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 1293,
+					"body": "{\"message\": \"Offensive player start with moves\", \"referee\": {\"id\": 4, \"notification\": \"Chandler will be Offensive and Pritam will be Defensive\", \"next_instruction\": \"Offensive player start with moves\", \"date_created\": \"2017-08-24T21:50:44.678680Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"game\": {\"id\": 141920, \"player_one_score\": 0, \"player_two_score\": 0, \"game_type\": \"Knockout\", \"status\": \"InProgress\", \"date_created\": \"2017-08-24T14:09:49.095185Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"player_one\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": null}, \"player_one_detail\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two_detail\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}}"
+				}
+			]
+		},
+		{
+			"name": "Start Game",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/start-game/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Start Game and give instructions to both players"
+			},
+			"response": [
+				{
+					"id": "db103cd0-9dd5-4006-b72f-a357baaadedf",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8000/referee/api/v1/start-game/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1520",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 25 Aug 2017 08:55:31 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 765,
+					"body": "{\"message\": \"Start Game with offensive player Chandler select random number from 1 to 10.Defensive player Pritam create a defense array of random numbers (from 1 to 10) of length 6\", \"referee\": {\"id\": 5, \"notification\": \"Start Game with offensive player Chandler select random number from 1 to 10.\", \"next_instruction\": \"Defensive player Pritam create a defense array of random numbers (from 1 to 10) of length 6\", \"date_created\": \"2017-08-25T08:55:31.288131Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"game\": {\"id\": 141920, \"player_one_score\": 0, \"player_two_score\": 0, \"game_type\": \"Knockout\", \"status\": \"InProgress\", \"date_created\": \"2017-08-24T14:09:49.095185Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"player_one\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": null}, \"player_one_detail\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two_detail\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}}"
+				}
+			]
+		},
+		{
+			"name": "Play Offensive move",
+			"request": {
+				"url": "http://127.0.0.1:8001/player/api/v1/offensive-move/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"move\": 10\n}"
+				},
+				"description": "Play Offensive move"
+			},
+			"response": [
+				{
+					"id": "03d89144-92ce-4602-8e22-542e175efc06",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8001/player/api/v1/login/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Pritam\"\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Thu, 24 Aug 2017 19:15:20 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"name": "connection",
+							"key": "connection",
+							"value": "keep-alive",
+							"description": "Options that are desired for the connection"
+						},
+						{
+							"name": "content-length",
+							"key": "content-length",
+							"value": "335",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "keep-alive",
+							"key": "keep-alive",
+							"value": "timeout=300",
+							"description": "Custom header"
+						},
+						{
+							"name": "proxy-connection",
+							"key": "proxy-connection",
+							"value": "keep-alive",
+							"description": "Custom header"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 178,
+					"body": "{\"message\": \"Logged in as Pritam. Draw toss for match\", \"player_token\": {\"id\": 3, \"token\": \"268b6369-d884-4dd9-abd7-7d1b99af450d\", \"date_created\": \"2017-08-24T19:03:34.198498Z\", \"player\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Selected\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}}"
+				},
+				{
+					"id": "f842e66a-e9d2-4485-b849-67db86429b48",
+					"name": "move-winner-json",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8001/player/api/v1/offensive-move/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"move\": 9\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1532",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 25 Aug 2017 13:51:25 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 543,
+					"body": "{\"message\": \"Player Pritam wins move, scores 1 point. Player Pritam choose random number from 1 to 10. Player Chandler create a defense array of random numbers (from 1 to 10) of length 5\", \"referee\": {\"id\": 9, \"notification\": \"Player Pritam wins move, scores 1 point. \", \"next_instruction\": \"Player Pritam choose random number from 1 to 10. Player Chandler create a defense array of random numbers (from 1 to 10) of length 5\", \"date_created\": \"2017-08-25T13:51:25.355821Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"game\": {\"id\": 141920, \"player_one_score\": 1, \"player_two_score\": 2, \"game_type\": \"Knockout\", \"status\": \"InProgress\", \"date_created\": \"2017-08-24T14:09:49.095185Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"player_one\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": null}, \"player_one_detail\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two_detail\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}}"
+				}
+			]
+		},
+		{
+			"name": "Play Defensive move",
+			"request": {
+				"url": "http://127.0.0.1:8001/player/api/v1/defensive-move/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"move\": [1,2,4,7,9,6]\n}"
+				},
+				"description": "Play Defensive move"
+			},
+			"response": [
+				{
+					"id": "16fea1b4-ec2b-4845-b81f-6304e4debfc4",
+					"name": "move-winner-json",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8001/player/api/v1/defensive-move/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"move\": [2,6,10,5,1,3]\n}"
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "1532",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 25 Aug 2017 13:07:54 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 337,
+					"body": "{\"message\": \"Player Pritam wins move, scores 1 point. Player Pritam choose random number from 1 to 10. Player Chandler create a defense array of random numbers (from 1 to 10) of length 5\", \"referee\": {\"id\": 8, \"notification\": \"Player Pritam wins move, scores 1 point. \", \"next_instruction\": \"Player Pritam choose random number from 1 to 10. Player Chandler create a defense array of random numbers (from 1 to 10) of length 5\", \"date_created\": \"2017-08-25T13:07:54.041858Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"game\": {\"id\": 141920, \"player_one_score\": 1, \"player_two_score\": 1, \"game_type\": \"Knockout\", \"status\": \"InProgress\", \"date_created\": \"2017-08-24T14:09:49.095185Z\", \"championship\": {\"id\": 9, \"status\": \"Started\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": null}, \"player_one\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": null}, \"player_one_detail\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Playing\", \"role\": \"Defensive\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two_detail\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Playing\", \"role\": \"Offensive\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}}"
+				}
+			]
+		},
+		{
+			"name": "Shutdown Defeated players",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/shutdown-loosers/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "Shutdown Defeated players"
+			},
+			"response": []
+		},
+		{
+			"name": "Export Game report",
+			"request": {
+				"url": "http://127.0.0.1:8000/referee/api/v1/championship/9/game-report/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Export Game report"
+			},
+			"response": [
+				{
+					"id": "a35897af-3791-4a5b-961b-58ca64970acf",
+					"name": "success-response",
+					"originalRequest": {
+						"url": "http://127.0.0.1:8000/referee/api/v1/championship/9/game-report/",
+						"method": "GET",
+						"header": [],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"name": "Content-Length",
+							"key": "Content-Length",
+							"value": "6203",
+							"description": "The length of the response body in octets (8-bit bytes)"
+						},
+						{
+							"name": "Content-Type",
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "The mime type of this content"
+						},
+						{
+							"name": "Date",
+							"key": "Date",
+							"value": "Fri, 25 Aug 2017 19:59:54 GMT",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"name": "Server",
+							"key": "Server",
+							"value": "WSGIServer/0.1 Python/2.7.9",
+							"description": "A name for the server"
+						},
+						{
+							"name": "X-Frame-Options",
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Invalid Date",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": true,
+							"value": "html-tab",
+							"key": "tabstyle"
+						},
+						{
+							"expires": "Wed Jul 25 2018 16:46:44 GMT+0530 (IST)",
+							"hostOnly": true,
+							"httpOnly": false,
+							"domain": "127.0.0.1",
+							"path": "/",
+							"secure": false,
+							"session": false,
+							"value": "pw4VUlfuGAyvNkIlA5eBoZgp8b3cpSSXoH8JQ162xRbXcp2wYjZuIJiR7FZJPH4y",
+							"key": "csrftoken"
+						}
+					],
+					"responseTime": 172,
+					"body": "{\"report\": [{\"id\": 141920, \"player_one_score\": 2, \"player_two_score\": 5, \"game_type\": \"Knockout\", \"status\": \"Done\", \"date_created\": \"2017-08-24T14:09:49.095185Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 55, \"name\": \"Chandler\", \"defence_set_length\": 5, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.257649Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, {\"id\": 141921, \"player_one_score\": 5, \"player_two_score\": 3, \"game_type\": \"Knockout\", \"status\": \"Done\", \"date_created\": \"2017-08-24T14:09:49.158593Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 54, \"name\": \"Amit\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.256787Z\"}, \"player_two\": {\"id\": 52, \"name\": \"Vivek\", \"defence_set_length\": 7, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255022Z\"}, \"winner\": {\"id\": 54, \"name\": \"Amit\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.256787Z\"}}, {\"id\": 141922, \"player_one_score\": 5, \"player_two_score\": 4, \"game_type\": \"Knockout\", \"status\": \"Done\", \"date_created\": \"2017-08-24T14:09:49.162771Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 51, \"name\": \"Russel\", \"defence_set_length\": 7, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.254093Z\"}, \"player_two\": {\"id\": 50, \"name\": \"Nick\", \"defence_set_length\": 8, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.252966Z\"}, \"winner\": {\"id\": 51, \"name\": \"Russel\", \"defence_set_length\": 7, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.254093Z\"}}, {\"id\": 141923, \"player_one_score\": 5, \"player_two_score\": 4, \"game_type\": \"Knockout\", \"status\": \"Done\", \"date_created\": \"2017-08-24T14:09:49.167964Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}, \"player_two\": {\"id\": 56, \"name\": \"Colwin\", \"defence_set_length\": 5, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.258623Z\"}, \"winner\": {\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}}, {\"id\": 141924, \"player_one_score\": 4, \"player_two_score\": 5, \"game_type\": \"Semi-Final\", \"status\": \"Done\", \"date_created\": \"2017-08-25T19:12:18.515150Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 54, \"name\": \"Amit\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.256787Z\"}, \"player_two\": {\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}, \"winner\": {\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}}, {\"id\": 141925, \"player_one_score\": 5, \"player_two_score\": 3, \"game_type\": \"Semi-Final\", \"status\": \"Done\", \"date_created\": \"2017-08-25T19:12:18.557022Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"player_two\": {\"id\": 51, \"name\": \"Russel\", \"defence_set_length\": 7, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.254093Z\"}, \"winner\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, {\"id\": 141926, \"player_one_score\": 1, \"player_two_score\": 5, \"game_type\": \"Final\", \"status\": \"Done\", \"date_created\": \"2017-08-25T19:35:07.223643Z\", \"championship\": {\"id\": 9, \"status\": \"Ended\", \"date_created\": \"2017-08-24T14:05:08.155947Z\", \"champion\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}, \"player_one\": {\"id\": 49, \"name\": \"Joey\", \"defence_set_length\": 8, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.251109Z\"}, \"player_two\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}, \"winner\": {\"id\": 53, \"name\": \"Pritam\", \"defence_set_length\": 6, \"status\": \"Shutdown\", \"role\": \"Not Defined\", \"date_created\": \"2017-08-23T14:31:11.255903Z\"}}], \"message\": \"Game Report\"}"
+				}
+			]
+		}
+	]
+}

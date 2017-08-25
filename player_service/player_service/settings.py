@@ -146,7 +146,18 @@ PLAYER_ROLE = {"N/A":"Not Defined","Offensive":"Offensive", "Defensive":"Defensi
 
 CHAMPIONSHIP_STATUS = {"Started":"Started","Ended":"Ended"}
 
-GAME_STATUS = {"Drawn":"Drawn","InProgress":"InProgress","Done":"Done"}
+GAME_STATUS = {"Drawn":"Drawn", "Started":"Started", "InProgress":"InProgress","Done":"Done"}
 
 LOGIN_NOTIFICATION = "Player {0} has logged in"
 TOSS_INSTRUCTION = "Logged in as {0}. Draw toss for match between {1} vs {2}"
+
+MOVE_NOTIFICATION = "Player {0} wins move, scores 1 point. "
+MOVE_INSTRUCTION = "Player {0} choose random number from 1 to 10. Player {1} create a defense array of random numbers (from 1 to 10) of length {2}"
+
+WINNER_NOTIFICATION = "Player {0} won the match. "
+WINNER_INSTRUCTION = "Next Game between {0} vs {1} Please Login as one of them."
+
+SHUTDOWN_INSTRUCTION = "Shutdown defeated players"
+
+CHAMPIONSHIP_WINNER_NOTIFICATION = "Player {0} won the Championship. "
+NEXT_CHAMPIONSHIP_INSTRUCTION = "To start new championship start with player registration"

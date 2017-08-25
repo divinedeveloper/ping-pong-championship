@@ -14,10 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from api.views import login #, get_players, get_player_move, deactivate_player
+from api.views import login, defensive_move, offensive_move #, get_players, get_player_move, deactivate_player
 
 urlpatterns = [
     url(r'^login/', login, name='login'),
+    url(r'^offensive-move/', offensive_move, name='offensive_move'),
+    url(r'^defensive-move/', defensive_move, name='defensive_move'),
 
     # url(r'^players/', get_players, name='get_players'),
     # url(r'^moves/', get_player_move, name='get_player_move'),

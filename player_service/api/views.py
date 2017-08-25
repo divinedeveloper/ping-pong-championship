@@ -35,7 +35,7 @@ def login(request):
 		player_token_serializer = PlayerTokenSerializer(player_token)
 
 		HttpResponse.status_code = status.HTTP_200_OK
-		return JsonResponse({'message': "Logged in as {0}. Draw toss for match".format(pay_load['name']), 
+		return JsonResponse({'message': "Logged in as {0}. Draw toss for Game".format(pay_load['name']), 
 			"player_token": player_token_serializer.data})
 	except CustomApiException as err:
 		HttpResponse.status_code = err.status_code
@@ -45,94 +45,56 @@ def login(request):
 		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
 
 
-# @csrf_exempt
-# def get_players(request):
-# 	"""
-# 	Request ask for players list to register.
 
-# 	returns: 
-# 	List of players
-# 	"""
-# 	try:
-# 		BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+@csrf_exempt
+def offensive_move(request):
+	try:
+		pay_load = json.loads(request.body)
 
-# 		players_data_file =  os.path.join(BASE_DIR, 'players_data.json')
+		if not pay_load['move']:
+			raise CustomApiException("Please provide a random number from 1 to 10", status.HTTP_400_BAD_REQUEST)
 
-# 		with open(players_data_file) as json_file:
-# 			players_data_list = json.load(json_file)
+		if pay_load['move'] == 0 or not(isinstance(pay_load['move'], int)) or (pay_load['move'] not in range(1,11)):
+			raise CustomApiException("Please provide a random number from 1 to 10 only", status.HTTP_400_BAD_REQUEST)
 
+		service = Services()
+		referee_response = service.offensive_move(pay_load['move'])
 
-# 		HttpResponse.status_code = status.HTTP_200_OK
-# 		return JsonResponse({"players_data_list": players_data_list})
-# 	except CustomApiException as err:
-# 		HttpResponse.status_code = err.status_code
-# 		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
-# 	except Exception, e:
-# 		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-# 		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
+		referee_serializer = RefereeSerializer(referee_response)
 
-# @csrf_exempt
-# def get_player_move(request):
-# 	"""
-# 	Request contains player type(offensive/defensive) and defence set length(eg. 5).
+		HttpResponse.status_code = status.HTTP_200_OK
+		return JsonResponse({'message': referee_serializer.data['notification'] + referee_serializer.data['next_instruction'], 
+			"referee": referee_serializer.data})
+	except CustomApiException as err:
+		HttpResponse.status_code = err.status_code
+		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
+	except Exception, e:
+		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
 
-# 	returns: 
-# 	random int number from 1-10 if offensive
-# 	list of random numbers if defensive
-# 	"""
-# 	try:
-# 		player_type = request.GET.get('player_type', '')
-# 		player_defence_set_length = request.GET.get('player_defence_set_length', '')
+@csrf_exempt
+def defensive_move(request):
+	try:
+		pay_load = json.loads(request.body)
 
-# 		if player_type == "" or player_type == None:
-# 			raise CustomApiException("Please provide player type", status.HTTP_400_BAD_REQUEST)
+		if not pay_load['move']:
+			raise CustomApiException("Please provide defense array of random numbers (from 1 to 10)", status.HTTP_400_BAD_REQUEST)
 
-# 		if player_defence_set_length == "" or player_defence_set_length == None or int(player_defence_set_length) == 0:
-# 			raise CustomApiException("Please provide player's defence set length", status.HTTP_400_BAD_REQUEST)
+		if not all(isinstance(item, int) for item in pay_load['move']):
+			raise CustomApiException("Please provide defense array of Numbers only", status.HTTP_400_BAD_REQUEST)
 
-# 		if player_type == "offensive":
-# 			player_move = randint(1,10)
-# 		else:
-# 			#generate a list of no.s for 1 to defence length
-# 			player_move = sample(range(1,10), int(player_defence_set_length))
+		service = Services()
+		referee_response = service.defensive_move(pay_load['move'])
 
-# 		HttpResponse.status_code = status.HTTP_200_OK
-# 		return JsonResponse({"player_move": player_move})
-# 	except CustomApiException as err:
-# 		HttpResponse.status_code = err.status_code
-# 		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
-# 	except Exception, e:
-# 		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-# 		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
+		referee_serializer = RefereeSerializer(referee_response)
 
-# @csrf_exempt
-# def deactivate_player(request):
-# 	"""
-# 	Request body contains players dict.
+		HttpResponse.status_code = status.HTTP_200_OK
+		return JsonResponse({'message': referee_serializer.data['notification'] + referee_serializer.data['next_instruction'], 
+			"referee": referee_serializer.data})
+	except CustomApiException as err:
+		HttpResponse.status_code = err.status_code
+		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
+	except Exception, e:
+		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
 
-# 	set is_active to false
-# 	returns: player dict
-# 	"""
-# 	try:
-# 		if not request.body:
-# 			raise CustomApiException("Please provide player data", status.HTTP_400_BAD_REQUEST )
-		
-# 		if not 'application/json' in request.META.get('CONTENT_TYPE'):
-# 			raise CustomApiException("Please provide request body as json format only", status.HTTP_400_BAD_REQUEST ) 
-
-# 		json_body = json.loads(request.body)
-
-# 		for key, value in json_body.iteritems():
-# 			if value is None or value == "":
-# 				raise CustomApiException("Please provide " + key, status.HTTP_400_BAD_REQUEST)
-
-# 		json_body['is_active'] = False
-
-# 		HttpResponse.status_code = status.HTTP_200_OK
-# 		return JsonResponse(json_body, safe=False)
-# 	except CustomApiException as err:
-# 		HttpResponse.status_code = err.status_code
-# 		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
-# 	except Exception, e:
-# 		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
-# 		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})

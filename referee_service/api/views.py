@@ -90,13 +90,13 @@ def draw_games(request):
 
 
 @csrf_exempt
-def choose_roles_for_players(request, game_id):
+def choose_roles_for_players(request):
 	"""
 	Referee randomly chooses one player as offensive and other as defensive.
 	"""
 	try:
 		service = Services()
-		response = service.choose_roles_for_players(int(game_id))
+		response = service.choose_roles_for_players()
 
 		referee_serializer = RefereeSerializer(response)
 
@@ -110,6 +110,68 @@ def choose_roles_for_players(request, game_id):
 		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
 		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
 
+@csrf_exempt
+def start_game(request):
+	"""
+	Referee instructs to start game.
+
+	Instruct offensive player to choose random no. and 
+	defensive player to defense array of random numbers according to set length
+	"""
+	try:
+		service = Services()
+		response = service.start_game()
+
+		referee_serializer = RefereeSerializer(response)
+
+		HttpResponse.status_code = status.HTTP_200_OK
+		return JsonResponse({'message': referee_serializer.data['notification'] + referee_serializer.data['next_instruction'],
+			'referee': referee_serializer.data})
+
+	except CustomApiException as err:
+		HttpResponse.status_code = err.status_code
+		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
+	except Exception, e:
+		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
+
+
+@csrf_exempt
+def shutdown_loosers(request):
+	try:
+		service = Services()
+		response = service.shutdown_loosers()
+
+		referee_serializer = RefereeSerializer(response)
+
+		HttpResponse.status_code = status.HTTP_200_OK
+		return JsonResponse({'message': referee_serializer.data['notification'] + referee_serializer.data['next_instruction'],
+			'referee': referee_serializer.data})
+
+	except CustomApiException as err:
+		HttpResponse.status_code = err.status_code
+		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
+	except Exception, e:
+		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
+
+@csrf_exempt
+def export_game_report(request, championship_id):
+	try:
+		service = Services()
+		games = service.export_game_report(int(championship_id))
+
+		game_serializer = GameSerializer(games, many = True)
+
+		HttpResponse.status_code = status.HTTP_200_OK
+		return JsonResponse({'message': "Game Report",'report': game_serializer.data})
+
+	except CustomApiException as err:
+		HttpResponse.status_code = err.status_code
+		return JsonResponse({'status_code': err.status_code, 'message': err.detail})
+	except Exception, e:
+		HttpResponse.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+		return JsonResponse({'status_code': status.HTTP_500_INTERNAL_SERVER_ERROR, 'message': str(e)})
 
 # def start_matches(request):
 # 	"""
